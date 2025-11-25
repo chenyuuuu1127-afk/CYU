@@ -22,7 +22,7 @@ body {
   color: var(--text);
   font-family: "Chiron GoRound TC","Noto Sans TC",sans-serif;
   line-height: 1.8;
-  font-size: 17px;  /* 內文字大一點 */
+  font-size: 17px;
 }
 
 /* header */
@@ -51,7 +51,7 @@ header {
 .title {
   font-family: "Orbitron",system-ui,sans-serif;
   letter-spacing: 0.14em;
-  font-size: 26px;            /* 最大 */
+  font-size: 26px;
   text-transform: uppercase;
   margin: 0 0 6px;
   color: var(--accent);
@@ -71,11 +71,11 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;    /* 置中 */
+  justify-content: center;
 }
 
 #char-nav a {
-  font-size: 14px;            /* 比內文略大，小於角色名 */
+  font-size: 14px;
   padding: 5px 12px;
   border-radius: 999px;
   border: 1px solid rgba(228,154,132,0.55);
@@ -112,11 +112,33 @@ main {
 .char-card {
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding: 16px 16px 20px;
+  padding: 0; /* 改由內部元素控制 padding */
   border: 1px solid var(--border);
   box-shadow: 0 10px 20px rgba(150,120,100,0.14);
   position: relative;
   overflow: hidden;
+}
+
+/* 點擊區（角色名＋tagline＋icon） */
+.char-toggle {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* 去掉 button 預設樣式 */
+.char-toggle:focus {
+  outline: none;
+}
+
+.char-toggle:hover {
+  background: rgba(255,255,255,0.7);
 }
 
 /* 角色名（第二大）＋ tagline */
@@ -124,7 +146,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 4px;
 }
 
 .char-name {
@@ -137,6 +158,31 @@ main {
   color: var(--muted);
 }
 
+/* 展開/收合 icon */
+.char-toggle-icon {
+  font-size: 18px;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+/* 展開狀態 icon 小變化 */
+.char-card.expanded .char-toggle-icon {
+  transform: rotate(45deg); /* ＋ 轉 45° → 類似 × / 收合 */
+}
+
+/* 內容區：預設收起 */
+.char-body {
+  padding: 0 16px 16px;
+  display: none;
+  border-top: 1px solid rgba(225,210,199,0.7);
+}
+
+/* 展開時顯示 */
+.char-card.expanded .char-body {
+  display: block;
+}
+
 /* 模型小標題 */
 .model-title {
   margin: 14px 0 8px;
@@ -147,9 +193,9 @@ main {
 
 /* 一行說明 */
 .char-note {
-  font-size: 15px;        /* 內文大小 */
+  font-size: 15px;
   color: var(--text);
-  margin: 4px 0 6px;
+  margin: 10px 0 6px;
 }
 
 /* 圖片外框 */
@@ -175,7 +221,7 @@ main {
   .container {
     padding: 0 12px 32px;
   }
-  .char-card {
-    padding: 14px 14px 18px;
+  .char-body {
+    padding: 0 12px 14px;
   }
 }
