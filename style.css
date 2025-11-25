@@ -1,0 +1,181 @@
+:root {
+  /* 溫馨柔和配色 */
+  --bg: #f7efe7;
+  --card-bg: #ffffff;
+  --accent: #e49a84;         /* 溫暖珊瑚橘 */
+  --accent-soft: rgba(228,154,132,0.18);
+  --text: #3c302b;           /* 深咖啡 */
+  --muted: #8f7b72;
+  --border: #e1d2c7;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at top, #fceee6 0, #f7efe7 40%, #f2e6da 100%);
+  color: var(--text);
+  font-family: "Chiron GoRound TC","Noto Sans TC",sans-serif;
+  line-height: 1.8;
+  font-size: 17px;  /* 內文字大一點 */
+}
+
+/* header */
+header {
+  padding: 22px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    to bottom,
+    rgba(247,239,231,0.96),
+    rgba(247,239,231,0.92),
+    rgba(247,239,231,0.86)
+  );
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+/* 主頁標題：最大層級 */
+.title {
+  font-family: "Orbitron",system-ui,sans-serif;
+  letter-spacing: 0.14em;
+  font-size: 26px;            /* 最大 */
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  color: var(--accent);
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* 角色索引：第三層級（角色名第二層級） */
+#char-nav {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;    /* 置中 */
+}
+
+#char-nav a {
+  font-size: 14px;            /* 比內文略大，小於角色名 */
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(228,154,132,0.55);
+  color: var(--accent);
+  text-decoration: none;
+  background: rgba(255,255,255,0.9);
+  transition: background 0.15s, transform 0.1s, border-color 0.15s, box-shadow 0.15s;
+}
+
+#char-nav a:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+main {
+  margin-top: 18px;
+}
+
+/* section 間距 */
+.char-section {
+  margin-top: 22px;
+}
+
+/* 角色卡列表 */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* 卡片本體 */
+.char-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 16px 16px 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 20px rgba(150,120,100,0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 角色名（第二大）＋ tagline */
+.char-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.char-name {
+  font-size: 20px;       /* 第二層級：角色名 */
+  font-weight: 700;
+}
+
+.char-tagline {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* 模型小標題 */
+.model-title {
+  margin: 14px 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* 一行說明 */
+.char-note {
+  font-size: 15px;        /* 內文大小 */
+  color: var(--text);
+  margin: 4px 0 6px;
+}
+
+/* 圖片外框 */
+.char-img-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(210,188,172,0.7);
+  background: #fdf7f2;
+  margin-bottom: 10px;
+}
+
+.char-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 手機調整 */
+@media (max-width: 600px) {
+  header {
+    padding: 18px 12px 10px;
+  }
+  .container {
+    padding: 0 12px 32px;
+  }
+  .char-card {
+    padding: 14px 14px 18px;
+  }
+}

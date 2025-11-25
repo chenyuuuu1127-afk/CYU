@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LLM 角色輸出範例展示</title>
+
+  <!-- 字型 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <p class="title">LLM CHARACTER OUTPUT GALLERY</p>
+    <p class="subtitle">
+      以下為各角色在實際對話中的截圖範例，用來展示語氣、敘事節奏與畫面感。
+    </p>
+
+    <!-- 角色快速索引：id 要對應下面 section -->
+    <nav id="char-nav">
+      <a href="#liuguang">琉光</a>
+      <a href="#char-2">角色二</a>
+      <a href="#char-3">角色三</a>
+      <!-- 繼續加下去 -->
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 角色一：琉光 -->
+  <section id="liuguang" class="char-section">
+    <div class="char-grid">
+      <article class="char-card">
+        <div class="char-header">
+          <div class="char-name">琉光</div>
+          <div class="char-tagline">溫柔穩定・細膩光影感</div>
+        </div>
+
+        <!-- 角色風格簡述（一行或兩行都可以） -->
+        <p class="char-note">
+          偏抒情敘事，動作與環境描寫比重高，適合安定、療癒向場景。
+        </p>
+
+        <!-- ✦ 模型一：Sonnet 4.5 -->
+        <h4 class="model-title">Sonnet 4.5</h4>
+
+        <div class="char-img-wrap">
+          <img src="liuguang_s45_1.jpg" alt="琉光 Sonnet 4.5 範例一">
+        </div>
+
+        <div class="char-img-wrap">
+          <img src="liuguang_s45_2.jpg" alt="琉光 Sonnet 4.5 範例二">
+        </div>
+
+        <!-- ✦ 模型二：GPT-4.1（範例結構示意，用不到可以整段刪掉） -->
+        <h4 class="model-title">GPT-4.1</h4>
+
+        <div class="char-img-wrap">
+          <img src="liuguang_gpt41_1.jpg" alt="琉光 GPT-4.1 範例一">
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- 角色二：示意 -->
+  <section id="char-2" class="char-section">
+    <div class="char-grid">
+      <article class="char-card">
+        <div class="char-header">
+          <div class="char-name">角色二</div>
+          <div class="char-tagline">冷感克制・短句邏輯派</div>
+        </div>
+
+        <p class="char-note">
+          對話精簡，情緒收斂，以行動與決策推進劇情，不會主動長篇解說。
+        </p>
+
+        <h4 class="model-title">Sonnet 4.5</h4>
+
+        <div class="char-img-wrap">
+          <img src="char2_s45_1.jpg" alt="角色二 Sonnet 4.5 範例一">
+        </div>
+
+        <div class="char-img-wrap">
+          <img src="char2_s45_2.jpg" alt="角色二 Sonnet 4.5 範例二">
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- 角色三：示意 -->
+  <section id="char-3" class="char-section">
+    <div class="char-grid">
+      <article class="char-card">
+        <div class="char-header">
+          <div class="char-name">角色三</div>
+          <div class="char-tagline">吐槽型・微妙幽默感</div>
+        </div>
+
+        <p class="char-note">
+          帶一點乾式幽默，句子偏短，以視覺與動作帶出角色個性。
+        </p>
+
+        <h4 class="model-title">Sonnet 4.5</h4>
+
+        <div class="char-img-wrap">
+          <img src="char3_s45_1.jpg" alt="角色三 Sonnet 4.5 範例一">
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- 依照上面格式繼續新增 section 即可 -->
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
