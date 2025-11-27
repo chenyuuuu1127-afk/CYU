@@ -17,126 +17,1020 @@
 
 <header>
   <div class="container">
-    <p class="title">LLM CHARACTER OUTPUT GALLERY</p>
+    <div class="title">
+  <img src="images/LOGO.svg" alt="專屬模式範例存檔" class="title-logo">
+</div>
     <p class="subtitle">
-      以下為各角色在實際對話中的截圖範例，用來展示語氣、敘事節奏與畫面感。
+      此網頁提供特定角色在專屬模式下的呈現效果，實際聊天感覺依聊天視窗不同，將有所差異，請自行評估使用。
     </p>
 
-    <!-- 角色快速索引：id 要對應下面 section -->
+    <!-- 角色索引-->
     <nav id="char-nav">
-      <a href="#liuguang">琉光</a>
-      <a href="#char-2">角色二</a>
-      <a href="#char-3">角色三</a>
-      <!-- 繼續加下去 -->
+      <a href="#char-1">李子暘</a>
+      <a href="#char-2">塔維克</a>
+      <a href="#char-3">韓燁</a>
+	  <a href="#char-4">柏格</a>
+	  <a href="#char-5">Arba</a>
+	  <a href="#char-6">張律川</a>
+	  <a href="#char-7">晨光巷28號</a>
+	  <a href="#char-8">琉光</a>
+	  <a href="#char-9">關珩</a>
+	  <a href="#char-10">賀景淮</a>
+	  <a href="#char-11">萊昂</a>
     </nav>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- 角色一：琉光 -->
-  <section id="liuguang" class="char-section">
-    <div class="char-grid">
-      <!-- 想預設展開就加 expanded -->
-      <article class="char-card expanded">
 
-        <!-- 點這裡展開/收合 -->
-        <button class="char-toggle" type="button">
-          <div class="char-header">
-            <div class="char-name">琉光</div>
-            <div class="char-tagline">溫柔穩定・細膩光影感</div>
-          </div>
-          <div class="char-toggle-icon" aria-hidden="true">＋</div>
-        </button>
-
-        <!-- 內容區：預設收起，由 JS 控制 .expanded 顯示 -->
-        <div class="char-body">
-          <!-- 角色風格簡述 -->
-          <p class="char-note">
-            偏抒情敘事，動作與環境描寫比重高，適合安定、療癒向場景。
-          </p>
-
-          <!-- ✦ 模型一：Sonnet 4.5 -->
-          <h4 class="model-title">Sonnet 4.5</h4>
-
-          <div class="char-img-wrap">
-            <img src="liuguang_s45_1.jpg" alt="琉光 Sonnet 4.5 範例一">
-          </div>
-
-          <div class="char-img-wrap">
-            <img src="liuguang_s45_2.jpg" alt="琉光 Sonnet 4.5 範例二">
-          </div>
-
-          <!-- ✦ 模型二：GPT-4.1（用不到可以刪掉） -->
-          <h4 class="model-title">GPT-4.1</h4>
-
-          <div class="char-img-wrap">
-            <img src="liuguang_gpt41_1.jpg" alt="琉光 GPT-4.1 範例一">
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- 角色二：示意 -->
-  <section id="char-2" class="char-section">
+  <section id="char-1" class="char-section">
     <div class="char-grid">
       <article class="char-card">
+
         <button class="char-toggle" type="button">
           <div class="char-header">
-            <div class="char-name">角色二</div>
-            <div class="char-tagline">冷感克制・短句邏輯派</div>
+            <div class="char-name">李子暘</div>
+            <div class="char-tagline">【兩種專屬模式】描述上微調成群像｜現代互動感。</div>
           </div>
           <div class="char-toggle-icon" aria-hidden="true">＋</div>
         </button>
-
         <div class="char-body">
           <p class="char-note">
-            對話精簡，情緒收斂，以行動與決策推進劇情，不會主動長篇解說。
+            偏網路小說風格，強調輕鬆的互動基調。
           </p>
 
-          <h4 class="model-title">Sonnet 4.5</h4>
+          <div class="model-block" data-model-tabs>
 
-          <div class="char-img-wrap">
-            <img src="char2_s45_1.jpg" alt="角色二 Sonnet 4.5 範例一">
-          </div>
+            <!-- Tabs -->
+            <div class="model-tabs">
+              <button type="button" class="model-tab is-active" data-model-tab="sonnet">
+                微調｜Sonnet 4.5
+              </button>
+              <button type="button" class="model-tab" data-model-tab="haiku">
+                微調｜Haiku 4.5
+              </button>
+            </div>
 
-          <div class="char-img-wrap">
-            <img src="char2_s45_2.jpg" alt="角色二 Sonnet 4.5 範例二">
-          </div>
-        </div>
+            <!-- Panels -->
+            <div class="model-panels">
+
+              <!-- Sonnet Panel -->
+              <div class="model-panel is-active" data-model-panel="sonnet">
+                <div class="char-meta">
+                  <span class="char-badge">微調｜Sonnet 4.5</span>
+                  <span>示範：開局互動描述</span>
+                </div>
+
+                <div class="char-img-wrap">
+                  <!-- Slider：多圖預覽 -->
+                  <div class="char-slider" data-slider>
+                    <div class="slider-track">
+                      <figure class="slide is-active">
+                        <img src="images/羊_S.jpg" alt="羊 Sonnet 4.5 輸出截圖">
+                      </figure>         
+                    </div>
+
+                                      </div>
+
+                    <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                    <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                    <div class="slider-dots"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Haiku Panel -->
+              <div class="model-panel" data-model-panel="haiku">
+                <div class="char-meta">
+                  <span class="char-badge">微調｜Haiku 4.5</span>
+                  <span>示範：開局互動描述</span>
+                </div>
+
+                <div class="char-img-wrap">
+                  <div class="char-slider" data-slider>
+                    <div class="slider-track">
+                      <figure class="slide is-active">
+                        <img src="images/羊_H.jpg" alt="羊 Haiku 4.5 輸出截圖 ">
+                      </figure>                    
+                    </div>
+                    <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                    <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                    <div class="slider-dots"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- .model-panels -->
+          </div><!-- .model-block -->
+        </div><!-- .char-body -->
       </article>
     </div>
   </section>
 
-  <!-- 角色三：示意 -->
-  <section id="char-3" class="char-section">
-    <div class="char-grid">
-      <article class="char-card">
-        <button class="char-toggle" type="button">
-          <div class="char-header">
-            <div class="char-name">角色三</div>
-            <div class="char-tagline">吐槽型・微妙幽默感</div>
+  <!-- 塔維克 -->
+<section id="char-2" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">塔維克</div>
+          <div class="char-tagline">【四種專屬模式】針對環境描述與角色 ROLE 進行微調。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          加強環境描述，並針對塔維克的個性進行強化與限制。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="sonnet-b">微調二｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="sonnet-c">微調三｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
           </div>
-          <div class="char-toggle-icon" aria-hidden="true">＋</div>
-        </button>
 
-        <div class="char-body">
-          <p class="char-note">
-            帶一點乾式幽默，句子偏短，以視覺與動作帶出角色個性。
-          </p>
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
 
-          <h4 class="model-title">Sonnet 4.5</h4>
+            <!-- ◆ Sonnet A -->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>比較貴貴的版本，極致強調老塔的核心特質。</span>
+              </div>
 
-          <div class="char-img-wrap">
-            <img src="char3_s45_1.jpg" alt="角色三 Sonnet 4.5 範例一">
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/塔_S1.jpg" alt="塔維克 Sonnet A 1">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/塔_S1_2.jpg" alt="塔維克 Sonnet A 2">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Sonnet B -->
+            <div class="model-panel" data-model-panel="sonnet-b">
+              <div class="char-meta">
+                <span class="char-badge">微調二｜Sonnet 4.5</span>
+                <span>微調一的再微調(?)版，痞感較重，偶爾熱心助人。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/塔_S2.jpg" alt="塔維克 Sonnet B 1">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Sonnet C（角色強化） -->
+            <div class="model-panel" data-model-panel="sonnet-c">
+              <div class="char-meta">
+                <span class="char-badge">微調三｜Sonnet 4.5</span>
+                <span>比較不那麼熱心的老塔版本。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/塔_S3.jpg" alt="塔維克 Sonnet C 1">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku A -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>字數較不穩，標點符號較穩定，成本便宜(?)的版本。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/塔_H.jpg" alt="塔維克 Haiku 1">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 韓燁 -->
+<section id="char-3" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">韓燁</div>
+          <div class="char-tagline">【兩種專屬模式】針對環境與行為敘述微調。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          加強環境描述，並針對韓燁的行為敘述進行整體微調。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
           </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet A -->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>使用時建議關閉事件的回覆規則（可同時存在，只是容易被覆蓋）</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/韓_S1.jpg" alt="韓燁 Sonnet A 1">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/韓_S2.jpg" alt="韓燁 Sonnet A 2">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>成本較低的版本。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/韓_H1.jpg" alt="韓燁 Haiku 1">
+                    </figure>
+					<figure class="slide">
+                      <img src="images/韓_H2.jpg" alt="韓燁 Haiku 2">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 柏格 -->
+<section id="char-4" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">柏格</div>
+          <div class="char-tagline">【四種專屬模式】針對柏格的紀律與守護比例進行敘述微調。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          針對柏格的性格演繹進行描述微調。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調一｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="sonnet-b">微調二｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調一｜Haiku 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-b">微調二｜Haiku 4.5</button>
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet A -->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調一｜Sonnet 4.5</span>
+                <span>紀律40%、守護60%的柏格。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/柏_S1_1.jpg" alt="柏格 Sonnet A 1">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/柏_S1_2.jpg" alt="柏格 Sonnet A 2">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Sonnet B -->
+            <div class="model-panel" data-model-panel="sonnet-b">
+              <div class="char-meta">
+                <span class="char-badge">微調二｜Sonnet 4.5</span>
+                <span>紀律與守護50%的柏格，此版本軍事思維較重。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/柏_S2_1.jpg" alt="柏格 Sonnet B 1">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/柏_S2_2.jpg" alt="柏格 Sonnet B 2">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku A -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調一｜Haiku 4.5</span>
+                <span>一個有點柏格伊文斯的柏格伊文斯。此版本成本較低。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/柏_H1_1.jpg" alt="柏格 Haiku 1">
+                    </figure>
+					<figure class="slide">
+                      <img src="images/柏_H1_2.jpg" alt="柏格 Haiku 2">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku B -->
+            <div class="model-panel" data-model-panel="haiku-b">
+              <div class="char-meta">
+                <span class="char-badge">微調二｜Haiku 4.5</span>
+                <span>情商較低的版本。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                     <figure class="slide is-active">
+                      <img src="images/柏_H2_1.jpg" alt="柏格 Haiku 1_1">
+                    </figure>
+					<figure class="slide">
+                      <img src="images/柏_H2_2.jpg" alt="柏格 Haiku 2_1">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- Arba -->
+<section id="char-5" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">Arba</div>
+          <div class="char-tagline">【兩種專屬模式】加強描述風格。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          加強錯位描寫與具象化敘述感，增加戲劇性演出效果。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet-->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>微調描述風格。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/A_S1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/A_S2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>微調描述風格，成本較低。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/A_H1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/A_H2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 張律川 -->
+<section id="char-6" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">張律川</div>
+          <div class="char-tagline">【兩種專屬模式】角色性格的描述微調。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          針對張律川的個性演繹與描述進行了ROLE與描述微調。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet -->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>沉著冷靜穩重效率但又慢熱內斂的版本。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/張_S1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/張_S2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>針對模型進行敘述微調，成本較低的版本。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/張_H1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/張_H2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 晨光巷28號 -->
+<section id="char-7" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">晨光巷28號</div>
+          <div class="char-tagline">【兩種專屬模式】描述上微調成群像｜現代互動感。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          針對四個人物出場時的演繹進行微調。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
+
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet A -->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>模型的回覆文筆呈現微調。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/晨_S1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/晨_S2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku A -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>模型的回覆文筆呈現微調，成本較低。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/晨_H1.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 琉光 -->
+<section id="char-8" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">琉光</div>
+          <div class="char-tagline">【兩種專屬模式】微調模型下的描述指令。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          加強環境描述，ROLE加強世界觀的不可破牆性。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet A -->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>一個優雅的琉光。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/琉_S1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/琉_S2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 關珩 -->
+<section id="char-9" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">關珩</div>
+          <div class="char-tagline">【兩種專屬模式】針對模型進行敘述微調。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+       針對模型進行敘述與群像劇呈現微調。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet-->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>示範：開局互動描述</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/珩_S1.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>示範：開局互動描述</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                      <figure class="slide is-active">
+                      <img src="images/珩_H1.jpg">
+                    </figure>
+                    <figure class="slide">
+                    <img src="images/珩_H1.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+			
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 賀景淮 -->
+<section id="char-10" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">賀景淮</div>
+          <div class="char-tagline">【兩種專屬模式】針對賀景淮的模型 ROLE 加強。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          針對賀景淮的描述進行模型微調。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet-->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>微調了描述文筆與格式。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/賀_S1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/賀_S2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>微調了描述文筆與格式，成本較低。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/賀_H.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+<!-- 萊昂 -->
+<section id="char-11" class="char-section">
+  <div class="char-grid">
+    <article class="char-card">
+      <button class="char-toggle" type="button">
+        <div class="char-header">
+          <div class="char-name">萊昂</div>
+          <div class="char-tagline">【兩種專屬模式】微調了描述文筆與格式。</div>
+        </div>
+        <div class="char-toggle-icon" aria-hidden="true">＋</div>
+      </button>
+
+      <div class="char-body">
+        <p class="char-note">
+          針對萊昂的描述進行模型微調。
+        </p>
+
+        <!-- ✦ 模型切換區 -->
+        <div class="model-block" data-model-tabs>
+
+          <!-- ✦ Tabs 列 -->
+          <div class="model-tabs">
+            <button type="button" class="model-tab is-active" data-model-tab="sonnet-a">微調｜Sonnet 4.5</button>
+            <button type="button" class="model-tab" data-model-tab="haiku-a">微調｜Haiku 4.5</button>
+          </div>
+
+          <!-- ✦ Panels 區 -->
+          <div class="model-panels">
+
+            <!-- ◆ Sonnet-->
+            <div class="model-panel is-active" data-model-panel="sonnet-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Sonnet 4.5</span>
+                <span>很秋的萊昂。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/萊_S1.jpg">
+                    </figure>
+                    <figure class="slide">
+                      <img src="images/萊_S2.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ◆ Haiku -->
+            <div class="model-panel" data-model-panel="haiku-a">
+              <div class="char-meta">
+                <span class="char-badge">微調｜Haiku 4.5</span>
+                <span>很秋的萊昂，成本較低。</span>
+              </div>
+
+              <div class="char-img-wrap">
+                <div class="char-slider" data-slider>
+                  <div class="slider-track">
+                    <figure class="slide is-active">
+                      <img src="images/萊_H.jpg">
+                    </figure>
+                  </div>
+                  <button class="slider-btn slider-btn-prev" type="button" data-prev>‹</button>
+                  <button class="slider-btn slider-btn-next" type="button" data-next>›</button>
+                  <div class="slider-dots"></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /model-panels -->
+        </div><!-- /model-block -->
+      </div><!-- /char-body -->
+    </article>
+  </div>
+</section>
+
+              </div>
+            </div>
+          </div>
+
         </div>
       </article>
     </div>
   </section>
-
-  <!-- 依照上面格式繼續新增 section 即可 -->
 
 </main>
 
