@@ -1,18 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 展開 / 收合角色卡
+  // 展開動畫
   const cards = document.querySelectorAll(".char-card");
-
   cards.forEach(card => {
     const toggle = card.querySelector(".char-toggle");
     if (!toggle) return;
 
     toggle.addEventListener("click", () => {
-      const isExpanded = card.classList.toggle("expanded");
-      card.setAttribute("data-expanded", isExpanded ? "true" : "false");
+      const isAlreadyExpanded = card.classList.contains("expanded");
+
+      if (isAlreadyExpanded) {
+        card.classList.remove("expanded");
+        card.setAttribute("data-expanded", "false");
+      } else {
+        cards.forEach(other => {
+          if (other !== card) {
+            other.classList.remove("expanded");
+            other.setAttribute("data-expanded", "false");
+          }
+        });
+        card.classList.add("expanded");
+        card.setAttribute("data-expanded", "true");
+      }
     });
   });
 
-  // 模型 Tabs 切換
+  // 模型Tabs
   const modelBlocks = document.querySelectorAll("[data-model-tabs]");
 
   modelBlocks.forEach(block => {
@@ -24,16 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = tab.getAttribute("data-model-tab");
         if (!target) return;
 
-        // Tab 狀態切換
         tabs.forEach(t => t.classList.remove("is-active"));
         tab.classList.add("is-active");
 
-        // Panel 顯示切換
         panels.forEach(panel => {
           if (panel.getAttribute("data-model-panel") === target) {
             panel.classList.add("is-active");
 
-            // 切換時把該 panel 裡的 slider 重置到第一張
             const slider = panel.querySelector("[data-slider]");
             if (slider) {
               resetSlider(slider);
@@ -46,14 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 初始化所有 slider
   const sliders = document.querySelectorAll("[data-slider]");
   sliders.forEach(initSlider);
 });
 
-/**
- * 初始化單一 slider
- */
 function initSlider(slider) {
   const track = slider.querySelector(".slider-track");
   const slides = slider.querySelectorAll(".slide");
@@ -97,6 +101,17 @@ function initSlider(slider) {
     });
   }
 
+  // 操作封裝：上一張 / 下一張
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlides();
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlides();
+  }
+
   // 重置到第一張（給 Tabs 切換時用）
   function reset() {
     currentIndex = 0;
@@ -108,28 +123,60 @@ function initSlider(slider) {
 
   // 左右按鈕事件
   if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlides();
-    });
+    prevBtn.addEventListener("click", showPrev);
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlides();
-    });
+    nextBtn.addEventListener("click", showNext);
   }
+
+  // ➜ 拖曳 / 滑動切換
+  let startX = null;
+  let isDragging = false;
+
+  function pointerDown(e) {
+    isDragging = true;
+    startX = e.clientX ?? (e.touches && e.touches[0]?.clientX);
+  }
+
+  function pointerMove(e) {
+    if (!isDragging || startX == null) return;
+    // 這裡不需要即時移動畫面，只記錄位置就好
+  }
+
+  function pointerUp(e) {
+    if (!isDragging || startX == null) {
+      isDragging = false;
+      startX = null;
+      return;
+    }
+    const endX = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX);
+    if (endX != null) {
+      const deltaX = endX - startX;
+      const threshold = 40; // 需要滑過多少 px 才觸發
+
+      if (deltaX > threshold) {
+        // 往右滑 → 看前一張
+        showPrev();
+      } else if (deltaX < -threshold) {
+        // 往左滑 → 看下一張
+        showNext();
+      }
+    }
+    isDragging = false;
+    startX = null;
+  }
+
+  // 支援滑鼠 + 觸控
+  slider.addEventListener("pointerdown", pointerDown);
+  slider.addEventListener("pointerup", pointerUp);
+  slider.addEventListener("pointercancel", pointerUp);
+  slider.addEventListener("pointerleave", pointerUp);
+
+  // iOS 有些情況只會觸發 touch 事件，保險再補一組
+  slider.addEventListener("touchstart", pointerDown, { passive: true });
+  slider.addEventListener("touchend", pointerUp);
 
   // 初始化一次
   updateSlides();
-}
-
-/**
- * 讓外部可以重置 slider 到第一張
- */
-function resetSlider(slider) {
-  if (slider && typeof slider._resetSlider === "function") {
-    slider._resetSlider();
-  }
 }
