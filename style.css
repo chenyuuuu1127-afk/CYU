@@ -436,3 +436,66 @@ main {
   padding: 4px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+
+
+/* ===== 噗文互動備份區 ===== */
+.backup-controls {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+.backup-toggle-btn {
+  font-size: 14px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(228,154,132,0.55);
+  background: rgba(255,255,255,0.9);
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.backup-toggle-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+.backup-video {
+  max-width: 720px;
+  margin: 0 auto 10px;
+  padding: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.backup-video-inner {
+  background: #fffdfb;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 20px rgba(150,120,100,0.14);
+  padding: 14px 16px 16px;
+}
+
+.backup-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.backup-video.is-open {
+  opacity: 1;
+  padding-top: 10px;
+  max-height: 600px;
+}
+
+@media (max-width: 600px) {
+  .backup-video-inner {
+    padding: 12px;
+  }
+}
