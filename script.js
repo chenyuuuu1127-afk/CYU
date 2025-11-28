@@ -1,4 +1,3 @@
-  // 展開動畫
   const cards = document.querySelectorAll(".char-card");
   cards.forEach(card => {
     const toggle = card.querySelector(".char-toggle");
@@ -23,7 +22,6 @@
     });
   });
 
-  // 模型Tabs
   const modelBlocks = document.querySelectorAll("[data-model-tabs]");
 
   modelBlocks.forEach(block => {
@@ -69,12 +67,10 @@ function initSlider(slider) {
 
   let currentIndex = 0;
 
-  // 如果只有一張圖，就隱藏左右箭頭
   if (slides.length <= 1) {
     slider.classList.add("no-arrows");
   }
 
-  // 建立 dots
   const dots = [];
   if (dotsContainer) {
     dotsContainer.innerHTML = "";
@@ -91,7 +87,6 @@ function initSlider(slider) {
     });
   }
 
-  // 更新顯示
   function updateSlides() {
     slides.forEach((slide, idx) => {
       slide.classList.toggle("is-active", idx === currentIndex);
@@ -100,8 +95,7 @@ function initSlider(slider) {
       dot.classList.toggle("is-active", idx === currentIndex);
     });
   }
-
-  // 操作封裝：上一張 / 下一張
+  
   function showPrev() {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     updateSlides();
@@ -112,16 +106,13 @@ function initSlider(slider) {
     updateSlides();
   }
 
-  // 重置到第一張（給 Tabs 切換時用）
   function reset() {
     currentIndex = 0;
     updateSlides();
   }
 
-  // 存在 slider 元素上，給外面 reset 用
   slider._resetSlider = reset;
 
-  // 左右按鈕事件
   if (prevBtn) {
     prevBtn.addEventListener("click", showPrev);
   }
@@ -130,7 +121,6 @@ function initSlider(slider) {
     nextBtn.addEventListener("click", showNext);
   }
 
-  // ➜ 拖曳 / 滑動切換
   let startX = null;
   let isDragging = false;
 
@@ -141,8 +131,6 @@ function initSlider(slider) {
 
   function pointerMove(e) {
     if (!isDragging || startX == null) return;
-    // 這裡不需要即時移動畫面，只記錄位置就好
-  }
 
   function pointerUp(e) {
     if (!isDragging || startX == null) {
@@ -153,13 +141,11 @@ function initSlider(slider) {
     const endX = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX);
     if (endX != null) {
       const deltaX = endX - startX;
-      const threshold = 40; // 需要滑過多少 px 才觸發
+      const threshold = 40;
 
       if (deltaX > threshold) {
-        // 往右滑 → 看前一張
         showPrev();
       } else if (deltaX < -threshold) {
-        // 往左滑 → 看下一張
         showNext();
       }
     }
@@ -167,16 +153,14 @@ function initSlider(slider) {
     startX = null;
   }
 
-  // 支援滑鼠 + 觸控
   slider.addEventListener("pointerdown", pointerDown);
   slider.addEventListener("pointerup", pointerUp);
   slider.addEventListener("pointercancel", pointerUp);
   slider.addEventListener("pointerleave", pointerUp);
 
-  // iOS 有些情況只會觸發 touch 事件，保險再補一組
   slider.addEventListener("touchstart", pointerDown, { passive: true });
   slider.addEventListener("touchend", pointerUp);
 
-  // 初始化一次
   updateSlides();
 }
+
