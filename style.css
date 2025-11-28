@@ -1,10 +1,9 @@
 :root {
-  /* 溫馨柔和配色 */
   --bg: #f7efe7;
   --card-bg: #ffffff;
-  --accent: #e49a84;         /* 溫暖珊瑚橘 */
+  --accent: #e49a84;
   --accent-soft: rgba(228,154,132,0.18);
-  --text: #3c302b;           /* 深咖啡 */
+  --text: #3c302b;
   --muted: #8f7b72;
   --border: #e1d2c7;
   --radius: 16px;
@@ -29,8 +28,6 @@ body {
 header {
   padding: 22px 16px 10px;
   border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
   z-index: 20;
   backdrop-filter: blur(18px);
   background: linear-gradient(
@@ -42,7 +39,7 @@ header {
 }
 
 .title-logo {
-  max-width: 320px;    /* 手機、平板剛剛好 */
+  max-width: 320px;
   width: 100%;
   height: auto;
   display: block;
@@ -57,7 +54,6 @@ header {
   padding: 0 16px 40px;
 }
 
-/* 主頁標題：最大層級 */
 .title {
   font-family: "Orbitron",system-ui,sans-serif;
   letter-spacing: 0.14em;
@@ -75,7 +71,7 @@ header {
   text-align: center;
 }
 
-/* 角色索引 */
+/* 角色ㄉ地方 */
 #char-nav {
   margin-top: 14px;
   display: flex;
@@ -106,19 +102,16 @@ main {
   margin-top: 18px;
 }
 
-/* section 間距 */
 .char-section {
   margin-top: 22px;
 }
 
-/* 角色卡列表 */
 .char-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* 卡片本體 */
 .char-card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -129,7 +122,6 @@ main {
   overflow: hidden;
 }
 
-/* 點擊展開區 */
 .char-toggle {
   width: 100%;
   padding: 14px 16px;
@@ -150,7 +142,6 @@ main {
   background: rgba(255,255,255,0.7);
 }
 
-/* 角色名＋tagline */
 .char-header {
   display: flex;
   flex-direction: column;
@@ -158,7 +149,7 @@ main {
 }
 
 .char-name {
-  font-size: 20px;       /* 第二層級：角色名 */
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -167,7 +158,6 @@ main {
   color: var(--muted);
 }
 
-/* 展開 icon */
 .char-toggle-icon {
   font-size: 18px;
   line-height: 1;
@@ -176,10 +166,9 @@ main {
 }
 
 .char-card.expanded .char-toggle-icon {
-  transform: rotate(45deg); /* ＋ 轉 45° → 類似 × 收合 */
+  transform: rotate(45deg);
 }
 
-/* 內容區 */
 .char-body {
   padding: 0 16px 16px;
   display: none;
@@ -190,19 +179,17 @@ main {
   display: block;
 }
 
-/* 角色簡述 */
 .char-note {
   font-size: 15px;
   color: var(--text);
   margin: 10px 0 10px;
 }
 
-/* 模型 Tabs 區 */
 .model-block {
   margin-top: 8px;
 }
 
-/* Tabs 列 */
+/* Tabs */
 .model-tabs {
   display: inline-flex;
   flex-wrap: wrap;
@@ -243,7 +230,7 @@ main {
   display: block;
 }
 
-/* meta 行 */
+/* meta */
 .char-meta {
   display: flex;
   flex-wrap: wrap;
@@ -265,7 +252,6 @@ main {
   text-transform: uppercase;
 }
 
-/* 圖片外框 */
 .char-img-wrap {
   border-radius: 12px;
   overflow: hidden;
@@ -274,13 +260,12 @@ main {
   margin-bottom: 10px;
 }
 
-/* Slider 區塊 */
+/* Slider */
 .char-slider {
   position: relative;
   width: 100%;
 }
 
-/* Track & Slide：這裡用 show/hide 方式，不搞 transform，簡單穩定 */
 .slider-track {
   width: 100%;
 }
@@ -299,7 +284,6 @@ main {
   display: block;
 }
 
-/* 左右按鈕 */
 .slider-btn {
   position: absolute;
   top: 50%;
@@ -330,7 +314,6 @@ main {
   right: 8px;
 }
 
-/* 如果只有一張圖，JS 會加這個 class 來隱藏按鈕 */
 .char-slider.no-arrows .slider-btn {
   display: none;
 }
@@ -360,7 +343,7 @@ main {
   transform: scale(1.1);
 }
 
-/* 手機調整 */
+/* 手機用 */
 @media (max-width: 600px) {
   header {
     padding: 18px 12px 10px;
@@ -372,3 +355,4 @@ main {
     padding: 0 12px 14px;
   }
 }
+
