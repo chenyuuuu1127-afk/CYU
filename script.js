@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll(".char-card");
   cards.forEach(card => {
     const toggle = card.querySelector(".char-toggle");
@@ -54,113 +55,119 @@
 
   const sliders = document.querySelectorAll("[data-slider]");
   sliders.forEach(initSlider);
-});
 
-function initSlider(slider) {
-  const track = slider.querySelector(".slider-track");
-  const slides = slider.querySelectorAll(".slide");
-  const prevBtn = slider.querySelector("[data-prev]");
-  const nextBtn = slider.querySelector("[data-next]");
-  const dotsContainer = slider.querySelector(".slider-dots");
+  function initSlider(slider) {
+    const track = slider.querySelector(".slider-track");
+    const slides = slider.querySelectorAll(".slide");
+    const prevBtn = slider.querySelector("[data-prev]");
+    const nextBtn = slider.querySelector("[data-next]");
+    const dotsContainer = slider.querySelector(".slider-dots");
 
-  if (!track || slides.length === 0) return;
+    if (!track || slides.length === 0) return;
 
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  if (slides.length <= 1) {
-    slider.classList.add("no-arrows");
-  }
+    if (slides.length <= 1) {
+      slider.classList.add("no-arrows");
+    }
 
-  const dots = [];
-  if (dotsContainer) {
-    dotsContainer.innerHTML = "";
-    slides.forEach((_, idx) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "slider-dot" + (idx === 0 ? " is-active" : "");
-      dot.addEventListener("click", () => {
-        currentIndex = idx;
-        updateSlides();
+    const dots = [];
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+      slides.forEach((_, idx) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "slider-dot" + (idx === 0 ? " is-active" : "");
+        dot.addEventListener("click", () => {
+          currentIndex = idx;
+          updateSlides();
+        });
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
       });
-      dotsContainer.appendChild(dot);
-      dots.push(dot);
-    });
-  }
+    }
 
-  function updateSlides() {
-    slides.forEach((slide, idx) => {
-      slide.classList.toggle("is-active", idx === currentIndex);
-    });
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle("is-active", idx === currentIndex);
-    });
-  }
-  
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlides();
-  }
+    function updateSlides() {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle("is-active", idx === currentIndex);
+      });
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("is-active", idx === currentIndex);
+      });
+    }
+    
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlides();
+    }
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlides();
-  }
+    function showNext() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlides();
+    }
 
-  function reset() {
-    currentIndex = 0;
-    updateSlides();
-  }
+    function reset() {
+      currentIndex = 0;
+      updateSlides();
+    }
 
-  slider._resetSlider = reset;
+    slider._resetSlider = reset;
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", showPrev);
-  }
+    if (prevBtn) {
+      prevBtn.addEventListener("click", showPrev);
+    }
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", showNext);
-  }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", showNext);
+    }
 
-  let startX = null;
-  let isDragging = false;
+    let startX = null;
+    let isDragging = false;
 
-  function pointerDown(e) {
-    isDragging = true;
-    startX = e.clientX ?? (e.touches && e.touches[0]?.clientX);
-  }
+    function pointerDown(e) {
+      isDragging = true;
+      startX = e.clientX ?? (e.touches && e.touches[0]?.clientX);
+    }
 
-  function pointerMove(e) {
-    if (!isDragging || startX == null) return;
+    function pointerMove(e) {
+      if (!isDragging || startX == null) return;
+    }
 
-  function pointerUp(e) {
-    if (!isDragging || startX == null) {
+    function pointerUp(e) {
+      if (!isDragging || startX == null) {
+        isDragging = false;
+        startX = null;
+        return;
+      }
+      const endX = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX);
+      if (endX != null) {
+        const deltaX = endX - startX;
+        const threshold = 40;
+
+        if (deltaX > threshold) {
+          showPrev();
+        } else if (deltaX < -threshold) {
+          showNext();
+        }
+      }
       isDragging = false;
       startX = null;
-      return;
     }
-    const endX = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX);
-    if (endX != null) {
-      const deltaX = endX - startX;
-      const threshold = 40;
 
-      if (deltaX > threshold) {
-        showPrev();
-      } else if (deltaX < -threshold) {
-        showNext();
-      }
-    }
-    isDragging = false;
-    startX = null;
+    slider.addEventListener("pointerdown", pointerDown);
+    slider.addEventListener("pointerup", pointerUp);
+    slider.addEventListener("pointercancel", pointerUp);
+    slider.addEventListener("pointerleave", pointerUp);
+
+    slider.addEventListener("touchstart", pointerDown, { passive: true });
+    slider.addEventListener("touchend", pointerUp);
+
+    updateSlides();
   }
 
-  slider.addEventListener("pointerdown", pointerDown);
-  slider.addEventListener("pointerup", pointerUp);
-  slider.addEventListener("pointercancel", pointerUp);
-  slider.addEventListener("pointerleave", pointerUp);
-
-  slider.addEventListener("touchstart", pointerDown, { passive: true });
-  slider.addEventListener("touchend", pointerUp);
-
-  updateSlides();
-}
-
+  function resetSlider(slider) {
+    if (slider && slider._resetSlider) {
+      slider._resetSlider();
+    }
+  }
+});
