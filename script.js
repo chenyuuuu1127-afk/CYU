@@ -23,6 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const backupToggle = document.getElementById('backup-toggle');
+  const backupVideo = document.getElementById('backup-video');
+
+  if (backupToggle && backupVideo) {
+    backupToggle.addEventListener('click', () => {
+      backupVideo.classList.toggle('is-open');
+    });
+  }
+
   const modelBlocks = document.querySelectorAll("[data-model-tabs]");
 
   modelBlocks.forEach(block => {
@@ -33,9 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.addEventListener("click", () => {
         const target = tab.getAttribute("data-model-tab");
         if (!target) return;
-
+        
         tabs.forEach(t => t.classList.remove("is-active"));
         tab.classList.add("is-active");
+
 
         panels.forEach(panel => {
           if (panel.getAttribute("data-model-panel") === target) {
@@ -95,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.classList.toggle("is-active", idx === currentIndex);
       });
     }
-    
+
     function showPrev() {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateSlides();
@@ -129,10 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
       startX = e.clientX ?? (e.touches && e.touches[0]?.clientX);
     }
 
-    function pointerMove(e) {
-      if (!isDragging || startX == null) return;
-    }
-
     function pointerUp(e) {
       if (!isDragging || startX == null) {
         isDragging = false;
@@ -161,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.addEventListener("touchstart", pointerDown, { passive: true });
     slider.addEventListener("touchend", pointerUp);
-
     updateSlides();
   }
 
